@@ -1,5 +1,5 @@
 # Python Robot Controller
-###### Robots controller in a delimited area
+###### Robots moves in a delimited area
 ###### Version: 1.1, Last updated: 2021-03-08
 Helps in controlling a robot, in this case a mower, but could be anything that can move in an area. 
 
@@ -18,7 +18,8 @@ This lead to think that we can have more than one Robot/Mower
 - Robot/Mowers can cut the grass
 - Robot/Mowers camera can get a complete view of the surrounding terrain
 
-The view will be send to the Factory/Office
+The view will be send to the Factory/Office that is the one that
+controls the robot/mower.
 
 ---
 
@@ -26,7 +27,7 @@ A Robot-Mower has:
 - Location, expressed through coordinates: Coordinates(x,y)
 - A Letter that represents one of the cardinal points (N,E,S,W)
 North, East, South, West, that is the Orientation
-- Position, expressed through coordinates and Orientation/Direction: (0,0,N)
+- Position, expressed through Coordinates and Orientation/Direction: (0,0,N)
 
 -----
 
@@ -59,7 +60,7 @@ these objects, and we obtain a list of final positions.
 Behaviour of our Application should come first:
 --What the system does ? --> Move objects in an area.
 
-I write test to mirror the language of the Domain experts, the Busniess side:
+I write test to mirror the language of the Domain experts, the Business side:
 - set the Area
 - deploy a robot/mower
 - give to the robot/mower initial position and orientation
@@ -77,3 +78,32 @@ https://www.goodreads.com/book/show/387190.Test_Driven_Development
 In this way I  build the DOMAIN MODEL. 
 Tests written in the Domain Language act as a living documentation, 
 for developers in the present and in the future.
+
+
+### Run App:
+- install python3.9 and/or check its version with python3.9 --version
+- install pip for python3.9 with 
+
+`sudo apt-get install python3.4-dev python3.4-venv`
+- Create the virtual environment with 
+
+`cd PythonRobotController`
+
+`python3.9 -m venv .env`
+
+`source .env/bin/activate`
+
+`pip3 install -r requirements.txt`
+
+`python3.9 -m pytest tests/ -v --cov command`
+
+`python3 app.py`
+
+Insert input in the form
+5 5 
+1 2 N
+LMLMLMLMM
+3 3 E
+MMRMMRMRRM
+
+To interrupt console: CTRL+C
