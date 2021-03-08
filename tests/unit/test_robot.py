@@ -7,12 +7,18 @@ from domain.domain_entities import area_flat_rectangular
 class TestRobot(TestCase):
 
     def setUp(self):
-        self.robot_coordinates = coordinates.Coordinates(1,2)
-        self.robot_mower_01 = robot_mower.RobotMower(self.robot_coordinates)
+        self.area = area_flat_rectangular.AreaFlatRectangular(bottom_left=(0,0),upper_right=(5,5))
+        self.robot_mower_01 = robot_mower.RobotMower(coordinates.Coordinates(1,2))
+        self.robot_mower_02 = robot_mower.RobotMower(coordinates.Coordinates(6,2))
 
-    def test_robot_can_be_deployed(self):
+    def test_check_identity_value_object(self):
         assert self.robot_mower_01.position == coordinates.Coordinates(1,2)
 
+    def test_robot_can_be_deployed(self):
+        assert self.robot_mower_01.deploy(self.area)
+
+    def test_robot_cannot_be_deployed(self):
+        assert not self.robot_mower_02.deploy(self.area)
 
     def test_two_robots_can_be_deployed(self):
         pass

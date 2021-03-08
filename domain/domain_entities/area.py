@@ -2,7 +2,7 @@ from abc import ABC,abstractmethod
 
 class Area(ABC):
     @abstractmethod
-    def __check_integrity__(self):
+    def is_coherent(self):
         pass
 
     @abstractmethod

@@ -6,21 +6,19 @@ from . import area
 class AreaFlatRectangular(area.Area):
 
     def __init__(self, **kwargs):
-        self._bottom_left = None
-        self._upper_right = None
-        if self.__check_integrity__(**kwargs):
-            self._bottom_left = kwargs['bottom_left']
-            self._upper_right = kwargs['upper_right']
+        self._bottom_left = kwargs['bottom_left']
+        self._upper_right = kwargs['upper_right']
 
-    def __check_integrity__(self, **kwargs):
-        bottom_left = kwargs['bottom_left']
-        upper_right = kwargs['upper_right']
-        if bottom_left == (0,0) and upper_right[0]>0 and upper_right[1]>0:
+    @property
+    def is_coherent(self):
+        if self.bottom_left == (0,0) and self.upper_right[0]>0 and self.upper_right[1]>0:
             return True
         return False
 
     def point_is_inside(self, **kwargs):
-        return True
+        if kwargs['x'] <= self._upper_right[0] and kwargs['y']<=self._upper_right[1]:
+            return True
+        return False
 
 
     @property

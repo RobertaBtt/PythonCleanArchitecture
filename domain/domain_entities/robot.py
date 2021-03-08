@@ -1,7 +1,8 @@
-from abc import ABC,abstractmethod
+from abc import ABC, abstractmethod
+from . import area
 
 
 class Robot(ABC):
     @abstractmethod
-    def deploy(self,*args):
+    def deploy(self, at: area.Area):
         pass
