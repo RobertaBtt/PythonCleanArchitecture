@@ -51,3 +51,29 @@ Each Robot/Mower has two lines of input.
 Each Robot/Mover actions are sequential:
 - the second Robot/Mower will start after the previous one had finished.
 
+### Implementation
+Following the Responsibility Driven Design,I've identify a Task that need to be done in the code,
+using a high level of Abstraction: 
+GAOL: Having an area, and a list of things in this area, we give instructions on how to move 
+these objects, and we obtain a list of final positions.
+Behaviour of our Application should come first:
+--What the system does ? --> Move objects in an area.
+
+I write test to mirror the language of the Domain experts, the Busniess side:
+- set the Area
+- deploy a robot/mower
+- give to the robot/mower initial position and orientation
+- sends to the robot/mower a strings of letters
+- obtain its final position and orientation
+
+Following the Kent Back principles of TDD 
+[Test_Driven_Development][Kent Back principles of TDD], I wrote first the tests
+and the name/declaration of these unit-tests describe the BEHAVIOUR that we want to see from the system.
+
+
+[Kent Back principles of TDD]: 
+https://www.goodreads.com/book/show/387190.Test_Driven_Development
+
+In this way I  build the DOMAIN MODEL. 
+Tests written in the Domain Language act as a living documentation, 
+for developers in the present and in the future.
