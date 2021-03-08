@@ -101,9 +101,11 @@ for developers in the present and in the future.
 
 Insert input in the form
 5 5 
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM
 
-To interrupt console: CTRL+C
+1 2 N
+
+LMLMLMLMM
+
+3 3 E
+
+MMRMMRMRRM
