@@ -1,15 +1,14 @@
 from abc import ABC, abstractmethod
-from . import area
-from domain.data_classes import coordinates
+from . import area as a
 
 
 class Robot(ABC):
     @abstractmethod
-    def deploy(self, coordinates_: coordinates, orientation_: str, area_: area.Area):
+    def deploy(self,**kwargs):
         pass
 
     @abstractmethod
-    def move(self):
+    def move(self, area_robot: a.Area):
         pass
 
     @abstractmethod

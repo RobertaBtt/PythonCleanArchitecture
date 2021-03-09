@@ -4,6 +4,7 @@ from domain.domain_entities import area as a
 
 ORIENTATIONS = ['N', 'S', 'E', 'W']
 
+
 class RobotMower(robot.Robot):
 
     @property
@@ -30,9 +31,12 @@ class RobotMower(robot.Robot):
     def area(self, value):
         self._area = value
 
-    def deploy(self, coordinates_: c.Coordinates, orientation_: str, area_: a.Area):
-
+    def deploy(self, **kwargs):
+        area_ = kwargs['area']
+        coordinates_ = c.Coordinates(kwargs['x'], kwargs['y'])
+        orientation_ = kwargs['orientation']
         if area_.point_is_inside(x=coordinates_.x, y=coordinates_.y) and orientation_ in ORIENTATIONS:
+            # Parameters are ok, I can set them to the object
             self._position = coordinates_
             self._orientation = orientation_
             self._area = area_

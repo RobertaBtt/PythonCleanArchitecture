@@ -8,10 +8,10 @@ from domain.data_classes import coordinates as c
 
 class AreaFlatRectangular(area.Area):
 
-    def deploy(self, coordinates_bottom: c.Coordinates, coordinates_upper: c.Coordinates):
-        if coordinates_bottom == c.Coordinates(0, 0) and coordinates_upper.x > 0 and coordinates_upper.y > 0:
-            self.bottom_left = coordinates_bottom
-            self.upper_right = coordinates_upper
+    def deploy(self, **kwargs):
+        if kwargs['x_bottom'] == 0 and kwargs['y_bottom'] == 0 and kwargs['x_upper'] >0 and kwargs['y_upper'] > 0:
+            self.bottom_left = c.Coordinates(kwargs['x_bottom'], kwargs['y_bottom'])
+            self.upper_right = c.Coordinates(kwargs['x_upper'], kwargs['y_upper'])
             return True
         return False
 

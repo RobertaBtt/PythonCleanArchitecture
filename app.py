@@ -26,4 +26,3 @@ if __name__ == '__main__':
                 print(robot.position.x, end=" ")
                 print(robot.position.y, end=" ")
                 print(robot.orientation)
-

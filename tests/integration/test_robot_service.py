@@ -10,13 +10,13 @@ class TestRobotService(TestCase):
 
     def setUp(self):
         self.area = a.AreaFlatRectangular()
-        self.area.deploy(c.Coordinates(0, 0), c.Coordinates(5, 5))
+        self.area.deploy(x_bottom=0, y_bottom=0, x_upper=5, y_upper=5)
         self.robot_mower_01 = robot_mower.RobotMower()
-        self.robot_mower_01.deploy(c.Coordinates(1, 2), 'N', self.area)
+        self.robot_mower_01.deploy(x=1, y=2, orientation='N', area=self.area)
         self.robot_mower_02 = robot_mower.RobotMower()
-        self.robot_mower_02.deploy(c.Coordinates(3,3), 'E', self.area)
+        self.robot_mower_02.deploy(x=3, y=3, orientation='E', area=self.area)
         self.robot_mower_03 = robot_mower.RobotMower()
-        self.robot_mower_03.deploy(c.Coordinates(0,0), 'N', self.area)
+        self.robot_mower_03.deploy(x=0, y=0, orientation='N', area=self.area)
 
     def test_create_area(self):
         x1 = 0
