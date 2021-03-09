@@ -104,11 +104,17 @@ app.py is the User Endpoint.
 
 `pip3 install -r requirements.txt`
 
-`python3.9 -m pytest tests/ -v --cov command`
+`python3.9 -m pytest tests/ -v`
 
 `python3 app.py`
 
-Insert input in the form
+Since the program can "deploy" an unpredictable number of robot/mowers, 
+the only way to stop the process is to provide an invalid input to the program, 
+so it is enough to press twice "Enter" and the program will stop, 
+but before it prints what it has in memory, if you succeed on creating some robots.
+
+
+
 5 5 
 
 1 2 N
@@ -124,3 +130,7 @@ Output is:
 1 3 N
 
 5 1 E
+
+-----
+
+ ![logo](SampleOutput.png)
