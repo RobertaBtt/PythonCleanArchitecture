@@ -17,6 +17,8 @@ def create_robot(x: int, y: int, orientation_: str, area_: area_abstract) -> rob
     robot_mower = mower.RobotMower()
     if robot_mower.deploy(c.Coordinates(x, y), orientation_, area_):
         return robot_mower
+    else:
+        return None
 
 
 def send_instructions(robot_: robot, instructions: str):

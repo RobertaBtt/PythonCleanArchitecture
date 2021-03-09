@@ -16,7 +16,7 @@ class AreaFlatRectangular(area.Area):
         return False
 
     def point_is_inside(self, **kwargs):
-        if kwargs['x'] <= self.upper_right.x and kwargs['y'] <= self.upper_right.y:
+        if self.upper_right.x >= kwargs['x'] >= self.bottom_left.x and self.upper_right.y >= kwargs['y'] >= self.bottom_left.y:
             return True
         return False
 

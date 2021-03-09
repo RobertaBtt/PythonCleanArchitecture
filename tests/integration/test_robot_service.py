@@ -47,7 +47,7 @@ class TestRobotService(TestCase):
         assert self.robot_mower_02.position == c.Coordinates(5,1)
         assert self.robot_mower_02.orientation == 'E'
 
-    def test_robot_remain_inside_the_area(self):
+    def test_robot03_remain_inside_the_area(self):
         services.send_instructions(self.robot_mower_03, 'MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM')
         assert self.robot_mower_03.position == c.Coordinates(0,5)
         assert self.robot_mower_03.orientation == 'N'
