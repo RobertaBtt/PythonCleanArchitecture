@@ -6,3 +6,7 @@ class Robot(ABC):
     @abstractmethod
     def deploy(self, at: area.Area):
         pass
+
+    @abstractmethod
+    def move(self):
+        pass
