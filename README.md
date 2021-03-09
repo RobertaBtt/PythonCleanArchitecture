@@ -79,6 +79,15 @@ In this way I  build the DOMAIN MODEL.
 Tests written in the Domain Language act as a living documentation, 
 for developers in the present and in the future.
 
+Then I've build a more High Level layer, that is the Service Layer, 
+that uses primitives, and offers three simple services:
+ - create robot
+ - create area
+- give instructions to a robot.
+
+Final steps are to Add the Presentation Layer, in this case the Command Line.
+
+app.py is the User Endpoint.
 
 ### Run App:
 - install python3.9 and/or check its version with python3.9 --version
