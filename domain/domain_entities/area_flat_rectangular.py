@@ -1,5 +1,5 @@
 from . import area
-
+from domain.data_classes import coordinates as c
 
 # An Area is an Entity because  it has a long-lived identity
 # It will be always in the same coordinates/position
@@ -8,26 +8,15 @@ from . import area
 
 class AreaFlatRectangular(area.Area):
 
-    def __init__(self, **kwargs):
-        self._bottom_left = kwargs['bottom_left']
-        self._upper_right = kwargs['upper_right']
-
-    @property
-    def bottom_left(self):
-        return self._bottom_left
-
-    @property
-    def upper_right(self):
-        return self._upper_right
-
-    @property
-    def is_coherent(self):
-        if self.bottom_left == (0, 0) and self.upper_right[0] > 0 and self.upper_right[1] > 0:
+    def deploy(self, coordinates_bottom: c.Coordinates, coordinates_upper: c.Coordinates):
+        if coordinates_bottom == c.Coordinates(0, 0) and coordinates_upper.x > 0 and coordinates_upper.y > 0:
+            self.bottom_left = coordinates_bottom
+            self.upper_right = coordinates_upper
             return True
         return False
 
     def point_is_inside(self, **kwargs):
-        if kwargs['x'] <= self._upper_right[0] and kwargs['y'] <= self._upper_right[1]:
+        if kwargs['x'] <= self.upper_right.x and kwargs['y'] <= self.upper_right.y:
             return True
         return False
 

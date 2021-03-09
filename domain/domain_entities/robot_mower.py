@@ -1,10 +1,8 @@
-from abc import abstractmethod
 from . import robot
 from domain.data_classes import coordinates as c
-from domain.data_classes import orientation as o
 from domain.domain_entities import area as a
-from typing import List
 
+ORIENTATIONS = ['N', 'S', 'E', 'W']
 
 class RobotMower(robot.Robot):
 
@@ -32,9 +30,9 @@ class RobotMower(robot.Robot):
     def area(self, value):
         self._area = value
 
-    def deploy(self, coordinates_: c.Coordinates, orientation_: o.Orientation, area_: a.Area):
+    def deploy(self, coordinates_: c.Coordinates, orientation_: str, area_: a.Area):
 
-        if area_.point_is_inside(x=coordinates_.x, y=coordinates_.y) and orientation_ in o.ORIENTATIONS:
+        if area_.point_is_inside(x=coordinates_.x, y=coordinates_.y) and orientation_ in ORIENTATIONS:
             self._position = coordinates_
             self._orientation = orientation_
             self._area = area_
@@ -67,6 +65,7 @@ class RobotMower(robot.Robot):
             self._turn_right()
 
     def _turn_left(self):
+
         if self._orientation == 'N':
             self._orientation = 'W'
         elif self._orientation == 'W':
@@ -86,10 +85,6 @@ class RobotMower(robot.Robot):
         elif self.orientation == 'W':
             self._orientation = 'N'
 
-    def _convert_orientation(self, new_direction: str):
-        map_directions = {}
-        map_directions['N']
-
     def process_instructions(self, instructions: str):
 
         for instruction in instructions:
@@ -99,4 +94,3 @@ class RobotMower(robot.Robot):
                 self._turn_left()
             elif instruction == 'R':
                 self._turn_right()
-
