@@ -1,6 +1,6 @@
 # Python Robot Controller
 ###### Robots moves in a delimited area
-###### Version: 1.1, Last updated: 2021-03-08
+###### Version: 1.2, Last updated: 2021-03-09
 Helps in controlling a robot, in this case a mower, but could be anything that can move in an area. 
 
 Robot/Mowers are able to:
@@ -109,3 +109,9 @@ LMLMLMLMM
 3 3 E
 
 MMRMMRMRRM
+
+Output is:
+
+1 3 N
+
+5 1 E

@@ -6,6 +6,6 @@ class Area(ABC):
         pass
 
     @abstractmethod
-    def point_is_inside(self,**args):
+    def point_is_inside(self,**kwargs):
         pass
 
