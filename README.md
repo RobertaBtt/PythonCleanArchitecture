@@ -134,3 +134,8 @@ Output is:
 -----
 
  ![logo](SampleOutput.png)
+ 
+ 
+-----
+ 
+ ![logo](Diagram.jpg)
