@@ -1,6 +1,6 @@
-# Python Robot Controller
-###### Robots moves in a delimited area
-###### Version: 1.2, Last updated: 2021-03-09
+# Python Clean Architecture
+###### A Thing moves in a delimited area
+
 Helps in controlling a thing that can move in an area. 
 
 Thing are able to:
@@ -49,7 +49,7 @@ Each Thing has two lines of input.
   - Second Line: A series of Instructions that tells the Thing how to "explore" the area.
   
 
-Each Robot/Mover actions are sequential:
+Each Thing's actions are sequential:
 - the second Thing will start after the previous one had finished.
 
 ### Implementation
@@ -81,9 +81,9 @@ for developers in the present and in the future.
 
 Then I've build a more High Level layer, that is the Service Layer, 
 that uses primitives, and offers three simple services:
- - create robot
+ - create a Thing
  - create area
-- give instructions to a robot.
+- give instructions to the Thing.
 
 Final steps are to Add the Presentation Layer, in this case the Command Line.
 
@@ -96,7 +96,7 @@ app.py is the User Endpoint.
 `sudo apt-get install python3.4-dev python3.4-venv`
 - Create the virtual environment with 
 
-`cd PythonRobotController`
+`cd PythonCleanArchitecture`
 
 `python3.9 -m venv .env`
 
@@ -111,7 +111,7 @@ app.py is the User Endpoint.
 Since the program can "deploy" an unpredictable number of Thing(s), 
 the only way to stop the process is to provide an invalid input to the program, 
 so it is enough to press twice "Enter" and the program will stop, 
-but before it prints what it has in memory, if you succeed on creating some robots.
+but before it prints what it has in memory, if you succeed on creating some Things.
 
 
 
