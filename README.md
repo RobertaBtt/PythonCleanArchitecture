@@ -1,9 +1,9 @@
 # Python Robot Controller
 ###### Robots moves in a delimited area
 ###### Version: 1.2, Last updated: 2021-03-09
-Helps in controlling a robot, in this case a mower, but could be anything that can move in an area. 
+Helps in controlling a thing that can move in an area. 
 
-Robot/Mowers are able to:
+Thing are able to:
 - cut the grass
 - inspect the terrain
 - identify problems in the green areas.
@@ -13,17 +13,17 @@ For the Minimal Viable Product (MVP):
 
 - A green grass area, is curiously rectangular:
    ![logo](ReadmeAreaExample.png)
- - The area must be navigated by the Robot/Mowers.(Point of view of the Area)
-This lead to think that we can have more than one Robot/Mower
-- Robot/Mowers can cut the grass
-- Robot/Mowers camera can get a complete view of the surrounding terrain
+ - The area must be navigated by the Thing.(Point of view of the Area)
+This lead to think that we can have more than one Thing
+- Thing can cut the grass
+- Thing camera can get a complete view of the surrounding terrain
 
 The view will be send to the Factory/Office that is the one that
-controls the robot/mower.
+controls the Thing.
 
 ---
 
-A Robot-Mower has:
+A Thing has:
 - Location, expressed through coordinates: Coordinates(x,y)
 - A Letter that represents one of the cardinal points (N,E,S,W)
 North, East, South, West, that is the Orientation
@@ -43,14 +43,14 @@ Possible letters are: L,R,M
 Input:
 - First Line: upper right coordinates of the Area. This serves to limit the Area
 
-It is possible to "deploy" more than one Robot/Mower.
-Each Robot/Mower has two lines of input.
-  - First Line: Robot/Mower position
-  - Second Line: A series of Instructions that tells the Robot/Mower how to "explore" the area.
+It is possible to "deploy" more than one Thing.
+Each Thing has two lines of input.
+  - First Line: Thing position
+  - Second Line: A series of Instructions that tells the Thing how to "explore" the area.
   
 
 Each Robot/Mover actions are sequential:
-- the second Robot/Mower will start after the previous one had finished.
+- the second Thing will start after the previous one had finished.
 
 ### Implementation
 Following the Responsibility Driven Design,I've identify a Task that need to be done in the code,
@@ -62,9 +62,9 @@ Behaviour of our Application should come first:
 
 I write test to mirror the language of the Domain experts, the Business side:
 - set the Area
-- deploy a robot/mower
-- give to the robot/mower initial position and orientation
-- sends to the robot/mower a strings of letters
+- deploy a Thing
+- give to the Thing initial position and orientation
+- sends to the Thing a strings of letters
 - obtain its final position and orientation
 
 Following the Kent Back principles of TDD 
@@ -108,7 +108,7 @@ app.py is the User Endpoint.
 
 `python3 app.py`
 
-Since the program can "deploy" an unpredictable number of robot/mowers, 
+Since the program can "deploy" an unpredictable number of Thing(s), 
 the only way to stop the process is to provide an invalid input to the program, 
 so it is enough to press twice "Enter" and the program will stop, 
 but before it prints what it has in memory, if you succeed on creating some robots.
