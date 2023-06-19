@@ -1,6 +1,8 @@
 # Python Clean Architecture
-###### A Thing moves in a delimited area
+![Diagram.jpg](Diagram.jpg)
 
+
+###### A Thing moves in a delimited area
 Helps in controlling a thing that can move in an area. 
 
 Thing are able to:
@@ -135,7 +137,3 @@ Output is:
 
  ![logo](SampleOutput.png)
  
- 
------
- 
- ![logo](Diagram.jpg)
